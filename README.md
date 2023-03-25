@@ -1,5 +1,5 @@
 # Diccionario_coloquial
-Proyecto de fund. de programación
+El objetivo de este proyecto es crear un diccionario de palabras y expresiones coloquiales donde tanto extranjeros como personas nativas puedan entender mejor al momento de tener una conversación.
 ## Diseño
 ### diagrama de flujo 
 
