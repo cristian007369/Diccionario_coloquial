@@ -1,4 +1,4 @@
-expresión=int(input("Ingrese la expresión que deseas buscar: "))
+expresión=str(input("Ingrese la expresión que deseas buscar: "))
 if expresión=="Parce" or expresión=="PARCE" or expresión=="parce":
     rta="significado en español"
     rta1="significado en ingles"

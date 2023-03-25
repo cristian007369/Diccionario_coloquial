@@ -1,4 +1,4 @@
-palabra=int(input("Ingrese la palabra que deseas buscar: "))
+palabra=str(input("Ingrese la palabra que deseas buscar: "))
 if palabra=="Parce" or palabra=="PARCE" or palabra=="parce":
     rta="significado en español"
     rta1="significado en ingles"

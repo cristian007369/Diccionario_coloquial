@@ -7,12 +7,12 @@ while cerrar!=1:
         palabra=0
         while palabra!=2:
             from palabras import *
-            palabra=input("Dígite 1 para buscar otra palabra: ")
+            palabra=str(input("Dígite 1 para buscar otra palabra: "))
     elif busqueda==2:
         expresión=0
         while expresión!=2:
             from expresiones import *
-            expresión=int(input("Dígite 1 para buscar otra expresión: "))
+            expresión=str(input("Dígite 1 para buscar otra expresión: "))
     else:
         print("Entrada no valida")
    
