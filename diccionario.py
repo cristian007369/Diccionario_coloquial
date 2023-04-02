@@ -1,19 +1,15 @@
-# Diccionario de palabras coloquiales o expresiones nativas
+import sqlite3
 
-cerrar=0
-while cerrar!=1:
-    busqueda=int(input("Dígite 1 para buscar el significado de una palabra o 2 para buscar el de una expresión: "))
-    if busqueda==1:
-        palabra=0
-        while palabra!=2:
-            from palabras import *
-            palabra=str(input("Dígite 1 para buscar otra palabra: "))
-    elif busqueda==2:
-        expresión=0
-        while expresión!=2:
-            from expresiones import *
-            expresión=str(input("Dígite 1 para buscar otra expresión: "))
-    else:
-        print("Entrada no valida")
-   
-    cerrar=int(input("¿Quieres cerrar el progrma? 1=si, otro número=no: "))
+# Conectarse a la base de datos (o crearla si no existe)
+conn = sqlite3.connect('mi_diccionario_palabras.db')
+
+# Consultar la definición de una palabra
+palabra_buscar = input("Buscar: ")
+definicion = conn.execute(f"SELECT definicion FROM diccionario WHERE palabra = '{palabra_buscar}'").fetchone()
+if definicion:
+    print(f"La definición de '{palabra_buscar}' es: {definicion[0]}")
+else:
+    print(f"No se encontró la palabra '{palabra_buscar}' en el diccionario")
+    
+# Cerrar la conexión a la base de datos
+conn.close()
