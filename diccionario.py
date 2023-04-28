@@ -4,10 +4,9 @@ import sqlite3
 conn = sqlite3.connect('mi_diccionario_palabras.db')
 conn1 = sqlite3.connect('mi_diccionario_expresiones.db')
 
-cont=0
-
-while cont!=3:
-    cont=int(input("0: palabras o 1: expresiones  "))
+while True:
+    cont=0
+    cont=int(input("Buscar palabra:0, expresiones:1\n"))
     print("-"*50)
     # Consultar la definición de una palabra
     while cont==0:
@@ -50,7 +49,3 @@ while cont!=3:
             print("-"*50)
     
         break
-
-# Cerrar la conexión a la base de datos
-conn.close()
-conn1.close()

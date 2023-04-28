@@ -7,8 +7,8 @@ conn = sqlite3.connect('mi_diccionario_expresiones.db')
 conn.execute('CREATE TABLE IF NOT EXISTS diccionario (expresion TEXT, definicion TEXT, traduccion TEXT, region TEXT)')
 
 # Agregar algunas expresiones y definiciones
-cont=1
-while cont!=0:
+
+while True:
     expresion=input("Ingrese una nueva expresión: ")
     definicion=input("Definición de la expresión: ")
     traduccion = input("Traducción al inglés: ")

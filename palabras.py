@@ -7,8 +7,8 @@ conn = sqlite3.connect('mi_diccionario_palabras.db')
 conn.execute('CREATE TABLE IF NOT EXISTS diccionario (palabra TEXT, definicion TEXT, traduccion TEXT, region TEXT)')
 
 # Agregar algunas palabras y definiciones
-cont=1
-while cont!=0:
+
+while True:
     palabra=input("Ingrese una nueva palabra: ")
     definicion=input("Definición de la palabra: ")
     traduccion = input("Traducción al inglés: ")
