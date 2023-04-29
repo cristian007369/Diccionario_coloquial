@@ -1,6 +1,6 @@
 import sqlite3
 
-# Conectarse a la base de datos (o crearla si no existe)
+# Conectarse a las base de datos
 conn = sqlite3.connect('mi_diccionario_palabras.db')
 conn1 = sqlite3.connect('mi_diccionario_expresiones.db')
 
