@@ -1,20 +1,19 @@
 import sqlite3
 
-# Conectarse a la base de datos (o crearla si no existe)
+# Nos conectamos a la base de datos (o crearla en su defecto)
 conn = sqlite3.connect('mi_diccionario_expresiones.db')
 
-# Crear la tabla 'diccionario' con dos columnas: 'expresiones' y 'definicion'
+# Creamos la tabla 'diccionario' con cuatro columnas: 'palabra', 'definicion', 'traduccion' y 'region'
 conn.execute('CREATE TABLE IF NOT EXISTS diccionario (expresion TEXT, definicion TEXT, traduccion TEXT, region TEXT)')
 
-# Agregar algunas expresiones y definiciones
-
+# Adregamos expresiones con sus definiciones, tradución y región a la pertenece
 while True:
-    expresion=input("Ingrese una nueva expresión: ")
+    expresion=input("Ingrese una nueva expresión: ").lower()
     definicion=input("Definición de la expresión: ")
     traduccion = input("Traducción al inglés: ")
     region = input("Región: ")
-    # Convertir la expresión ingresada a minúsculas antes de insertarla en la base de datos
-    expresion = expresion.lower()
+    
+    # Se insertan los nuevos cambios a la tabla 'diccionario'
     conn.execute("INSERT INTO diccionario (expresion, definicion, traduccion, region) VALUES (?, ?, ?, ?)", (expresion, definicion, traduccion, region))
     
     # Guardar los cambios en la base de datos

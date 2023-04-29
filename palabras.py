@@ -1,20 +1,19 @@
 import sqlite3
 
-# Conectarse a la base de datos (o crearla si no existe)
+# Nos conectamos a la base de datos (o crearla en su defecto)
 conn = sqlite3.connect('mi_diccionario_palabras.db')
 
-# Crear la tabla 'diccionario' con dos columnas: 'palabra' y 'definicion'
+# Creamos la tabla 'diccionario' con cuatro columnas: 'palabra', 'definicion', 'traduccion' y 'region'
 conn.execute('CREATE TABLE IF NOT EXISTS diccionario (palabra TEXT, definicion TEXT, traduccion TEXT, region TEXT)')
 
-# Agregar algunas palabras y definiciones
-
+# Adregamos palabras con sus definiciones, tradución y región a la pertenece
 while True:
-    palabra=input("Ingrese una nueva palabra: ")
+    palabra=input("Ingrese una nueva palabra: ").lower()
     definicion=input("Definición de la palabra: ")
     traduccion = input("Traducción al inglés: ")
     region = input("Región: ")
-    # Convertir la palabra ingresada a minúsculas antes de insertarla en la base de datos
-    palabra = palabra.lower()
+    
+    # Se insertan los nuevos cambios a la tabla 'diccionario'
     conn.execute("INSERT INTO diccionario (palabra, definicion, traduccion, region) VALUES (?, ?, ?, ?)", (palabra, definicion, traduccion, region))
     
     # Guardar los cambios en la base de datos
