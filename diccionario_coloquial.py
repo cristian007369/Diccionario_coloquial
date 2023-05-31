@@ -174,13 +174,11 @@ def agregar_nueva_palabra():
 def agregar_nueva_expresion():
     pass
 def guardar_nueva_palabra():
-    if traducion.get()!="" and traducion.get()!="Traducción" :
-        if definicion.get()!="" and definicion.get()!="Definición":
-            if region_selected.get()!="Región":
-                conn.execute('CREATE TABLE IF NOT EXISTS diccionario (palabra TEXT, definicion TEXT, traduccion TEXT, region TEXT)')
-                conn.execute("INSERT INTO diccionario (palabra, definicion, traduccion, region) VALUES (?, ?, ?, ?)", (busqueda1, definicion.get(), traducion.get(), region_selected.get()))
-                conn.commit()
-                toplevel_agregar2.destroy()
+    if traducion.get()!="" and traducion.get()!="Traducción" and definicion.get()!="" and definicion.get()!="Definición" and region_selected.get()!="Región":
+        conn.execute('CREATE TABLE IF NOT EXISTS diccionario (palabra TEXT, definicion TEXT, traduccion TEXT, region TEXT)')
+        conn.execute("INSERT INTO diccionario (palabra, definicion, traduccion, region) VALUES (?, ?, ?, ?)", (busqueda1, definicion.get(), traducion.get(), region_selected.get()))
+        conn.commit()
+        toplevel_agregar2.destroy()
     else:
         messagebox.showinfo(".____.", "No seas estúpido")
 
