@@ -70,8 +70,10 @@ def ver_base_datos_palabras():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM diccionario")
     resultados = cursor.fetchall()
+    cursor.execute("SELECT COUNT(*) FROM diccionario")
+    num_filas = cursor.fetchone()[0]
 
-    t_resultados.insert(INSERT, f"Palabras:\n")
+    t_resultados.insert(INSERT, f"{num_filas} Palabras:\n")
     for fila in resultados:
         t_resultados.insert(INSERT, f"*{fila[0]}\n")
     t_resultados.config(state="disabled")
@@ -88,8 +90,10 @@ def ver_base_datos_expresiones():
     cursor = conn1.cursor()
     cursor.execute("SELECT * FROM diccionario")
     resultados = cursor.fetchall()
+    cursor.execute("SELECT COUNT(*) FROM diccionario")
+    num_filas = cursor.fetchone()[0]
 
-    t_resultados.insert(INSERT, f"Expresiones:\n")
+    t_resultados.insert(INSERT, f"{num_filas} Expresiones:\n")
     for fila in resultados:
         t_resultados.insert(INSERT, f"*{fila[0]}\n")
     t_resultados.config(state="disabled")

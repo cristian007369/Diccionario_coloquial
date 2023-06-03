@@ -9,12 +9,16 @@ conn.execute('CREATE TABLE IF NOT EXISTS diccionario (palabra TEXT, definicion T
 # Adregamos palabras con sus definiciones, tradución y región a la pertenece
 while True:
     palabra=input("Ingrese una nueva palabra: ").lower()
-    definicion=input("Definición de la palabra: ")
-    traduccion = input("Traducción al inglés: ")
-    region = input("Región: ")
+    resultado = conn.execute(f"SELECT definicion, traduccion, region FROM diccionario WHERE palabra = '{palabra}'").fetchone()
+    if resultado:
+        None
+    else:
+        definicion=input("Definición de la palabra: ")
+        traduccion = input("Traducción al inglés: ")
+        region = input("Región: ")
     
-    # Se insertan los nuevos cambios a la tabla 'diccionario'
-    conn.execute("INSERT INTO diccionario (palabra, definicion, traduccion, region) VALUES (?, ?, ?, ?)", (palabra, definicion, traduccion, region))
+        # Se insertan los nuevos cambios a la tabla 'diccionario'
+        conn.execute("INSERT INTO diccionario (palabra, definicion, traduccion, region) VALUES (?, ?, ?, ?)", (palabra, definicion, traduccion, region))
     
-    # Guardar los cambios en la base de datos
-    conn.commit()
+        # Guardar los cambios en la base de datos
+        conn.commit()
